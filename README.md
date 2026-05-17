@@ -1,17 +1,19 @@
-# Jinja Slang
+# Jinja Slang for VSCode
 
-Provides seamless, dual-language syntax highlighting for Jinja2 templates that generate Slang and HLSL shaders. 
+Adds syntax highlighting for Jinja2 templates used to generate Slang shaders.
 
 ## Features
-By assigning the `jinja-slang` language mode to your files, this extension perfectly overlays Jinja2 control tags (`{% for %}`, `{{ variable }}`) on top of native Slang/C++ shader syntax. 
+Provides syntax highlighting for Jinja2 tags (`{% for %}`, `{{ variable }}`) embedded within Slang shader code, ensuring both template logic and shader syntax remain readable.
+
+![Jinja Slang in Action](media/example.png)
 
 ## Usage
-Simply save your files with the `.slang.j2` extension. VS Code will automatically detect and apply the correct dual-highlighting rules.
+Save your files with the `.slang.j2` extension. VS Code will automatically recognize the file type and apply the correct highlighting rules.
 
 ## Requirements
-This extension acts as a bridge and requires the following extensions to function. VS Code should install them automatically when you install this extension:
+You need these two extensions installed for this to work (VS Code should download them automatically when you install this one):
 * [Jinja](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja) (`wholroyd.jinja`)
 * [Slang Language Extension](https://marketplace.visualstudio.com/items?itemName=shader-slang.slang-language-extension) (`shader-slang.slang-language-extension`)
 
 ## Source
-[View the repository on GitHub](https://github.com/ZainSharief/jinja-slang)
+[GitHub Repository](https://github.com/ZainSharief/jinja-slang)
