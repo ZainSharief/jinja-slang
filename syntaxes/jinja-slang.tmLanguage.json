@@ -4,10 +4,94 @@
     "scopeName": "source.jinja-slang",
     "patterns": [
         {
-            "include": "source.jinja" 
+            "name": "meta.embedded.block.jinja",
+            "begin": "\\{%",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.tag.jinja" }
+            },
+            "end": "%\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.tag.jinja" }
+            },
+            "patterns": [
+                {
+                    "match": "\\b(for|in|range|endfor|if|elif|else|endif|macro|endmacro)\\b",
+                    "name": "keyword.control.jinja"
+                },
+                {
+                    "match": "\\b(true|false|none)\\b",
+                    "name": "constant.language.jinja"
+                },
+                {
+                    "match": "'[^']*'|\"[^\"]*\"",
+                    "name": "string.quoted.jinja"
+                },
+                {
+                    "match": "[a-zA-Z_][a-zA-Z0-9_]*",
+                    "name": "variable.other.jinja"
+                }
+            ]
+        },
+        {
+            "name": "meta.embedded.line.jinja",
+            "begin": "\\{\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.tag.jinja" }
+            },
+            "end": "\\}\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.tag.jinja" }
+            },
+            "patterns": [
+                {
+                    "match": "[a-zA-Z_][a-zA-Z0-9_]*",
+                    "name": "variable.other.jinja"
+                }
+            ]
+        },
+        {
+            "name": "comment.block.jinja",
+            "begin": "\\{#",
+            "end": "#\\}",
+            "name": "comment.block.jinja"
         },
         {
             "include": "source.slang"
+        },
+        {
+            "comment": "Catch-all fallback for plain variables completely ignored by Slang",
+            "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
+            "name": "variable.other.slang"
         }
-    ]
+    ],
+    "injections": {
+        "L:meta.type.annotation.slang": {
+            "patterns": [
+                {
+                    "comment": "Catch native primitive types inside annotations",
+                    "match": "\\b(uint[1-4]|int[1-4]|float[1-4]|void|uint|int|float|double)\\b",
+                    "name": "storage.type.slang"
+                },
+                {
+                    "comment": "Catch variables and parameters inside annotations",
+                    "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
+                    "name": "variable.other.slang"
+                }
+            ]
+        },
+        "L:meta.declaration.traditional.slang": {
+            "patterns": [
+                {
+                    "comment": "Catch custom types or templates inside global declarations",
+                    "match": "\\b(uint[1-4]|int[1-4]|float[1-4]|void|uint|int|float|double)\\b",
+                    "name": "storage.type.slang"
+                },
+                {
+                    "comment": "Catch any leftover variable/type identifiers",
+                    "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
+                    "name": "variable.other.slang"
+                }
+            ]
+        }
+    }
 }
