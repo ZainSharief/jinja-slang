@@ -8,8 +8,9 @@
     "type": "git",
     "url": "https://github.com/ZainSharief/jinja-slang"
   },
+  "icon": "icon.png",
   "engines": {
-    "vscode": "^1.120.0"
+    "vscode": "^1.85.0"
   },
   "extensionDependencies": [
     "wholroyd.jinja",
@@ -23,7 +24,11 @@
       "id": "jinja-slang",
       "aliases": ["Jinja Slang", "jinja-slang"],
       "extensions": [".slang.j2"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./media/icon.png",
+        "dark": "./media/icon.png"
+      }
     }],
     "grammars": [{
       "language": "jinja-slang",
