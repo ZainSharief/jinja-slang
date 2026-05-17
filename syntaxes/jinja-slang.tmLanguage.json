@@ -1,0 +1,13 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Jinja Slang",
+    "scopeName": "source.jinja-slang",
+    "patterns": [
+        {
+            "include": "source.jinja" 
+        },
+        {
+            "include": "source.slang"
+        }
+    ]
+}

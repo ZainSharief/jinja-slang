@@ -1,0 +1,34 @@
+{
+  "name": "jinja-slang",
+  "displayName": "Jinja Slang",
+  "description": "Jinja2 templating for Slang shaders",
+  "version": "0.0.1",
+  "publisher": "zainsharief",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZainSharief/jinja-slang"
+  },
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "extensionDependencies": [
+    "wholroyd.jinja",
+    "shader-slang.slang-language-extension"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "jinja-slang",
+      "aliases": ["Jinja Slang", "jinja-slang"],
+      "extensions": [".slang.j2"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "jinja-slang",
+      "scopeName": "source.jinja-slang",
+      "path": "./syntaxes/jinja-slang.tmLanguage.json"
+    }]
+  }
+}
